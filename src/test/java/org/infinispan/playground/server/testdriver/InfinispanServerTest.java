@@ -17,7 +17,6 @@ import org.infinispan.client.hotrod.transaction.lookup.RemoteTransactionManagerL
 import org.infinispan.commons.configuration.XMLStringConfiguration;
 import org.infinispan.configuration.cache.CacheMode;
 import org.infinispan.server.test.core.ServerRunMode;
-import org.infinispan.server.test.core.TestSystemPropertyNames;
 import org.infinispan.server.test.junit4.InfinispanServerRule;
 import org.infinispan.server.test.junit4.InfinispanServerRuleBuilder;
 import org.infinispan.server.test.junit4.InfinispanServerTestMethodRule;
@@ -33,8 +32,7 @@ public class InfinispanServerTest {
    public static final InfinispanServerRule SERVERS =
          InfinispanServerRuleBuilder.config("infinispan-cluster.xml")
                .numServers(2)
-               .runMode(ServerRunMode.CONTAINER)
-               .property(TestSystemPropertyNames.INFINISPAN_TEST_SERVER_BASE_IMAGE_NAME, "infinispan/server:11.0.0.Alpha1-3")
+               .runMode(ServerRunMode.EMBEDDED)
                .build();
 
    @Rule
